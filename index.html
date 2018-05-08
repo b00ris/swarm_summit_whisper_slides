@@ -1,0 +1,121 @@
+<html>
+<head>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section data-background-color="#4564dc">
+            <img src="img/status_logo.png">
+        </section>
+
+        <section data-background-color="#4564dc">
+            <h2>Status and Whisper</h2>
+        </section>
+
+        <section data-background-color="#4564dc">
+            <h2> Who we are?</h2>
+        </section>
+
+        <section data-background-color="#4564dc">
+            <h2> What is Status.im?</h2>
+        </section>
+
+        <section data-background-color="#4564dc">
+            <h2> What is Whisper?</h2>
+        </section>
+
+        <section data-background-color="#4564dc">
+            <h2> Whisper usage</h2>
+        </section>
+
+        <section data-background-color="#4564dc">
+            <h3> Whisperv5</h3>
+            <p>Main goal: the dark. It`s impossible to say what user reads or whiter what messages.</p>
+            <ul>
+                <li>ddos prevention(TTL, PoW)</li>
+                <li>Filters and topics</li>
+            </ul>
+        </section>
+
+        <section data-background-color="#4564dc">
+            <h3> Whisperv6</h3>
+            <p>Mail goal: the good tradeoff between keeping darkness and traffic reduction.</p>
+        </section>
+
+        <section data-background-color="#4564dc">
+            <h3> Whisperv6</h3>
+            <ul>
+                <li>Full and light nodes were introduced</li>
+                <li>Full node has `nil` or all bytes 1 Bloom filter</li>
+                <li>Light node has some different bloom filter</li>
+                <li>Bloom filter has many collisions per topic by design to not to share user`s data</li>
+            </ul>
+        </section>
+
+        <section data-background-color="#4564dc">
+            <h2> Mailbox</h2>
+            <ul>
+                <li>Collect all whisper messages</li>
+                <li>Requesting by bloom filter</li>
+                <li>Sending messages directly</li>
+            </ul>
+            <pre>
+                <code data-trim data-noescape>
+                    type MailServer interface {
+                        Archive(env *Envelope)
+                        DeliverMail(whisperPeer *Peer, request *Envelope)
+                    }
+                </code>
+            </pre>
+        </section>
+
+        <section data-background-color="#000000">
+            <img src="img/whisper_graph.png">
+        </section>
+
+        <section data-background-color="#4564dc">
+            <h2> Our case</h2>
+        </section>
+
+        <section data-background-color="#4564dc">
+            <h3> Half year ago</h3>
+            <ul>
+                <li>No persistent messaging</li>
+                <li>Huge network consumption(10-20gb per day)</li>
+                <li>CPU usage</li>
+            </ul>
+        </section>
+
+        <section data-background-color="#4564dc">
+            <h3> Results</h3>
+            <ul>
+                <li>TBD chart</li>
+                <li>Network consumption dropped to 10-20mb per day</li>
+                <li>Persistent messaging</li>
+                <li>Reduced CPU usage (How much??)</li>
+            </ul>
+        </section>
+
+        <section data-background-color="#4564dc">
+            <h3> Current problems</h3>
+            <ul>
+                <li>Mailservers are nowadays centralized</li>
+                <li>PoW computation on mobile devices</li>
+                <li>Post method only validate request</li>
+            </ul>
+        </section>
+
+    </div>
+</div>
+<script src="js/reveal.js"></script>
+<script>
+    Reveal.initialize({});
+</script>
+<style>
+    .reveal section img { background:none; border:none; box-shadow:none; }
+
+</style>
+</body>
+</html>
