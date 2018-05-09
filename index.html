@@ -25,15 +25,19 @@
         </section>
 
         <section data-background-color="#4564dc">
-            <h2> Whisper usage</h2>
+            <h3> Whisper usage</h3>
+            <ul>
+                <li>Messaging</li>
+                <li>Beginnig of transaction</li>
+                <li>DApps communication</li>
+            </ul>
         </section>
 
         <section data-background-color="#4564dc">
             <h3> Whisperv5</h3>
-            <p>Main goal: the dark. It`s impossible to say what user reads or whiter what messages.</p>
             <ul>
-                <li>ddos prevention(TTL, PoW)</li>
                 <li>Filters and topics</li>
+                <li>ddos prevention(TTL, PoW)</li>
             </ul>
         </section>
 
@@ -45,28 +49,27 @@
         <section data-background-color="#4564dc">
             <h3> Whisperv6</h3>
             <ul>
-                <li>Full and light nodes were introduced</li>
-                <li>Full node has `nil` or all bytes 1 Bloom filter</li>
-                <li>Light node has some different bloom filter</li>
+                <li>Bloom filters</li>
+                <li>Light mode</li>
                 <li>Bloom filter has many collisions per topic by design to not to share user`s data</li>
             </ul>
         </section>
 
         <section data-background-color="#4564dc">
-            <h2> Mailbox</h2>
+            <h3> Mailbox</h3>
             <ul>
                 <li>Collect all whisper messages</li>
                 <li>Requesting by bloom filter</li>
                 <li>Sending messages directly</li>
             </ul>
-            <pre>
-                <code data-trim data-noescape>
-                    type MailServer interface {
-                        Archive(env *Envelope)
-                        DeliverMail(whisperPeer *Peer, request *Envelope)
-                    }
-                </code>
-            </pre>
+        </section>
+
+        <section data-background-color="#4564dc">
+            <h3> Mailbox interface</h3>
+            <ul>
+                <li>Archive(Envelope)</li>
+                <li>DeliverMail(Peer, From, To, Bloomfilter)</li>
+            </ul>
         </section>
 
         <section data-background-color="#000000">
